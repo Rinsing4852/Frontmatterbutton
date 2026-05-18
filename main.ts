@@ -1,4 +1,5 @@
 import {
+	addIcon,
 	App,
 	moment,
 	Notice,
@@ -34,16 +35,26 @@ const DEFAULT_SETTINGS: FrontmatterButtonSettings = {
 	excludedFolders: [],
 };
 
+const FRONTMATTER_BUTTON_ICON = "frontmatter-button-file-plus";
+const FRONTMATTER_BUTTON_ICON_SVG = `
+<g fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+	<path d="M58 8H25a8 8 0 0 0-8 8v67a8 8 0 0 0 8 8h50a8 8 0 0 0 8-8V33z" />
+	<path d="M58 8v25h25" />
+	<path d="M50 50v25" />
+	<path d="M38 63h25" />
+</g>`;
+
 export default class FrontmatterButtonPlugin extends Plugin {
 	settings: FrontmatterButtonSettings;
 
 	async onload() {
 		await this.loadSettings();
+		addIcon(FRONTMATTER_BUTTON_ICON, FRONTMATTER_BUTTON_ICON_SVG);
 
 		this.addCommand({
 			id: "add-default-frontmatter",
 			name: "Add default frontmatter to current note",
-			icon: "file-plus",
+			icon: FRONTMATTER_BUTTON_ICON,
 			callback: () => {
 				void this.addDefaultFrontmatterToCurrentNote();
 			},

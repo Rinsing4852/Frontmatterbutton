@@ -1,6 +1,6 @@
 {
 	"name": "frontmatter-button",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Add configurable default YAML frontmatter to the current Obsidian note.",
 	"main": "main.js",
 	"scripts": {
