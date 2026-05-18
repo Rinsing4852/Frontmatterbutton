@@ -43,6 +43,7 @@ export default class FrontmatterButtonPlugin extends Plugin {
 		this.addCommand({
 			id: "add-default-frontmatter",
 			name: "Add default frontmatter to current note",
+			icon: "file-plus",
 			callback: () => {
 				void this.addDefaultFrontmatterToCurrentNote();
 			},
